@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Montserrat:wght@200;300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <!-- Header/Nav START -->
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <!-- Header/Nav END -->
+    <!-- Hero START -->
+    <section class="hero">
+        <img class="hero-img" src="./assets/images/PortfolioHero.jpeg" alt="Sunset over North Tucson. Photo by Q. Skevington" />
+        <div class="subtitle-outer">
+            <div class="subtitle">Bring me that horizon.
+            </div>
+        </div>
+    </section>
+    <!-- Hero END -->
+    <!-- Main START -->
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-xlg-3 m-3">
+                    <form class="m-2" id="city-search-form">
+                        <label for="city-input"><h2>Search by City:</h2></label><br />
+                        <input type="text" id="city-input" placeholder="City">
+                        <button type="submit" id="searchBtn" class="btn btn-primary"><span class="oi oi-magnifying-glass"></span></button>
+                    </form>
+                    <div class="card m-2">
+                        <h3 class="card-header">Recent Searches</h3>
+                        <ul class="recent-searches">
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xlg-9 m-3">
+                    <h3>Current Weather in <span class="activeLocation"></span></h3>
+                    <div class="current-weather">
+
+                    </div>
+                    <h3>5-Day Forecast</h3>
+                    <div class="five-day-forecast">
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+    <!-- Main END -->
+    <!-- Footer START -->
+    <footer>
+        <h5>Come as you are. Leave Equipped.</h5>
+        <p>
+            <a href="mailto:quayla@cxadvisors.com">Email Me</a><br/>
+            &copy; 2020 Skevington Enterprises, Inc.
+        </p>
+    </footer>
+    <!-- Footer END -->
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
