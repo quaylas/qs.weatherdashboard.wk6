@@ -1,11 +1,76 @@
-var citySearchEl = document.querySelector('#city-input');
+// initialize constants for convenience - apikey and DateTime handler
+const apiKey = '24b36e9826e829e8c4cfc81fb3088c3d';
+const DateTime = luxon.DateTime;
+
+// initialize variables that will track user input
+var searchFormEl = document.querySelector('#city-search-form');
+var cityInputEl = document.querySelector('#city-input');
+
+// initialize variables that will hold dynamic content
 var activeLocationEl = document.querySelector('.activeLocation');
 var currentWeatherEl = document.querySelector('.current-weather');
 var currentConditions = document.createElement('ul');
 var fiveDayForecastEl = document.querySelector('.five-day-forecast');
+var recentSearchesEl = document.querySelector('.recent-searches');
 
-const apiKey = '24b36e9826e829e8c4cfc81fb3088c3d';
-const DateTime = luxon.DateTime;
+// initialize recent searches array
+var recentSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
+
+// function to handle a submitted search city
+var searchSubmitHandler = function(event) {
+    // prevent page reload
+    event.preventDefault();
+
+    // get search term from input element
+    var city = cityInputEl.value.trim();
+
+    // if there is a city, getCurrentWeather
+    if (city) {
+        getCurrentWeather(city);
+        updateRecentSearches(city);
+        cityInputEl.value = '';
+    }
+    else {
+        alert('please enter a city');
+    }
+};
+
+// function to handle click on a city in recent searches
+var recentCityHandler = function(event) {
+    var cityID = event.target.getAttribute('data-id');
+    var cityToGet = recentSearches[cityID];
+    getCurrentWeather(cityToGet);
+};
+
+// function to update recentSearches array/local storage object
+var updateRecentSearches = function(city){
+    recentSearches.unshift(city);
+    localStorage.setItem('recentSearches',JSON.stringify(recentSearches));
+    populateRecentSearches(recentSearches);
+};
+
+// function to populate recent searches onto the page
+var populateRecentSearches = function(recentSearchesArray) {
+    // clear out original list
+    recentSearchesEl.innerHTML = '';
+
+    // loop over recentSearches and push them into the page
+    for(var i = 0; i < recentSearchesArray.length; i++) {
+        // truncate new city from storage to 'city, state'
+        var newCityElements = recentSearchesArray[i].split(',');
+
+        // initialize container for new city
+        var newCity = document.createElement('li');
+        newCity.classList.add('list-group-item');
+        newCity.setAttribute('data-id',[i]);
+
+        // insert appropriate text content to new city container
+        newCity.textContent = newCityElements[0] + ', ' + newCityElements[1];
+
+        // append new city to recent searches list
+        recentSearchesEl.appendChild(newCity);
+    }
+};
 
 var getForecast = function (lat, lon) {
     // build query URL
@@ -31,6 +96,9 @@ var getForecast = function (lat, lon) {
 };
 
 var populateForecast = function(forecastData) {
+    // clear out any prior forecast
+    fiveDayForecastEl.innerHTML = '';
+
     var forecastContainer = document.createElement('div');
     forecastContainer.classList.add('card-group');
 
@@ -111,6 +179,10 @@ var getCurrentWeather = function(city, stateCode, countryCode) {
 };
 
 var populateCurrentWeather = function(weatherData) {
+    // clear out any prior weather
+    currentWeatherEl.innerHTML = '';
+    currentConditions.innerHTML = '';
+
     // get date and format to human-friendly
     var currentDate = DateTime.fromSeconds(weatherData.dt ,'UTC');
     currentDate = currentDate.toLocaleString();
@@ -197,5 +269,7 @@ var populateCurrentUVIndex = function(uvData) {
     currentConditions.appendChild(currentUV);
 }
 
-
-getCurrentWeather('Honolulu', 'HI', 'US');
+populateRecentSearches(recentSearches);
+searchFormEl.addEventListener('submit', searchSubmitHandler);
+recentSearchesEl.addEventListener('click', recentCityHandler);
+// getCurrentWeather('Honolulu', 'HI', 'US');
