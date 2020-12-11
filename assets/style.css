@@ -8,6 +8,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    line-height: 1.8;
 }
 body {
     background-color: var(--light);
@@ -87,6 +88,33 @@ header nav ul li a {
 /* Content Styles START */
 .container {
     margin: 20px auto;
+}
+.current-weather {
+    padding: 0 15px;
+}
+.current-weather ul {
+    list-style: none;
+}
+.current-weather ul li {
+    padding: 5px 0;
+}
+.current-weather ul li span {
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+.activeLocation img {
+    height: 60px;
+    width: 60px;
+}
+h5 {
+    font-size: 18px;
+}
+.card img {
+    height: 45px;
+    width: 45px;
+}
+.card-text {
+    font-size: 13px;
 }
 .grid-outer {
     width: 80%;
