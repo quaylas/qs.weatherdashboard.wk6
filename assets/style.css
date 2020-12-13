@@ -295,6 +295,9 @@ footer a {
     header nav ul li a {
         margin: 0 15px;
     }
+    .h2{
+        font-size: 1.75rem;
+    }
     .subtitle-outer {
         margin-top: 120px;
     }

@@ -39,3 +39,47 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 ```
+
+---
+
+## Key Features
+
+* Responsive layout leveraging Bootstrap Grid and Cards
+* Previous searches are persisted in local storage
+* Previous searches are displayed and may be clicked rather than entered again.
+* Displays Feels Like, Current Conditioons, Temperature, Humidity, Wind Speed, and UV index for the current day. 
+* Displays Daily Temperature, High Temperature, Low Temperature, and Humidity for the next 5 days.
+* Displays icons to indicate weather conditions.
+
+---
+## Images
+### Desktop View
+
+1440px X 1112px
+
+![Image of desktop view](./assets/images/DesktopView.png)
+
+### iPad View 1
+
+768px X 1024px
+
+![Image of iPad view](./assets/images/iPadView.png)
+
+### iPad View 2
+
+768px X 1024px
+
+![Image of iPad view](./assets/images/iPadView2.png)
+
+### iPhone 6 View 1
+
+375px X 667px
+
+![Image of iPhone 6 view](./assets/images/iPhone6View.png)
+
+
+### iPhone 6 View 2
+
+375px X 667px
+
+![Image of iPhone 6 view](./assets/images/iPhone6View2.png)
