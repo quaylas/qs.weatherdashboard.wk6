@@ -17,40 +17,37 @@
     </header>
     <!-- Header/Nav END -->
     <!-- Hero START -->
-    <section class="hero">
+    <!-- <section class="hero">
         <img class="hero-img" src="./assets/images/PortfolioHero.jpeg" alt="Sunset over North Tucson. Photo by Q. Skevington" />
         <div class="subtitle-outer">
             <div class="subtitle">Bring me that horizon.
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Hero END -->
     <!-- Main START -->
-        <div class="container">
-            <div class="row">
-                <div class="col-3">
-                    <form class="user-form m-2" id="city-search-form">
-                        <label for="city-input"><h2>Search by City:</h2></label><br />
-                        <input type="text" id="city-input" placeholder="City">
-                        <button type="submit" id="searchBtn" class="btn btn-primary"><span class="oi oi-magnifying-glass"></span></button>
-                    </form>
-                    <div class="card m-2">
-                        <h3 class="card-header">Recent Searches</h3>
-                        <ul class="recent-searches list-group">
+        <div class="row min-vh-100 no-gutters m-2">
+            <div class="col-12 col-xl-3 p-4 p-xl-3 d-flex flex-column">
+                <h2 id="search-title">Search by City:</h2>
+                <form class="user-form m-2" id="city-search-form">
+                    <input type="text" id="city-input" placeholder="Ex: Phoenix, AZ, US">
+                    <button type="submit" id="searchBtn" class="btn btn-primary"><span class="oi oi-magnifying-glass"></span></button>
+                </form>
+                <div class="card my-2" id='recentSearches'>
+                    <h3 class="card-header">Recent Searches</h3>
+                    <ul class="recent-searches list-group">
 
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
-                <div class="col-9">
-                    <h3>Weather in <span class="activeLocation"></span></h3>
-                    <div class="current-weather">
+            </div>
+            <div class="col-12 col-xl-9 p-4 d-flex flex-column">
+                <h2 class="activeLocation"></h2>
+                <div class="current-weather">
 
-                    </div>
-                    <h3>5-Day Forecast</h3>
-                    <div class="five-day-forecast">
-                    </div>
                 </div>
-                
+                <h3 class='forecast-header'></h3>
+                <div class="five-day-forecast">
+                </div>
             </div>
         </div>
     <!-- Main END -->

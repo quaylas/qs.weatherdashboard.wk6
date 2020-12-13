@@ -10,6 +10,7 @@ var cityInputEl = document.querySelector('#city-input');
 var activeLocationEl = document.querySelector('.activeLocation');
 var currentWeatherEl = document.querySelector('.current-weather');
 var currentConditions = document.createElement('ul');
+var forecastHeaderEl = document.querySelector('.forecast-header');
 var fiveDayForecastEl = document.querySelector('.five-day-forecast');
 var recentSearchesEl = document.querySelector('.recent-searches');
 
@@ -98,7 +99,7 @@ var getForecast = function (lat, lon) {
 var populateForecast = function(forecastData) {
     // clear out any prior forecast
     fiveDayForecastEl.innerHTML = '';
-
+    forecastHeaderEl.textContent = '5 Day Forecast';
     var forecastContainer = document.createElement('div');
     forecastContainer.classList.add('card-group');
 
@@ -187,7 +188,7 @@ var populateCurrentWeather = function(weatherData) {
     var currentDate = DateTime.fromSeconds(weatherData.dt ,'UTC');
     currentDate = currentDate.toLocaleString();
     // set text content of activeLocation span
-    activeLocationEl.textContent = weatherData.name + ' (' + currentDate + ')';
+    activeLocationEl.textContent = 'Weather in ' + weatherData.name + ' (' + currentDate + ')';
     // add an image of the current weather to the activeLocation span
     var currentWeatherImage = document.createElement('img');
     var iconURL = 'http://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png';
@@ -195,7 +196,7 @@ var populateCurrentWeather = function(weatherData) {
     activeLocationEl.appendChild(currentWeatherImage);
 
     // insert 'feels like' and weather state
-    var feelsLikeWeather = document.createElement('h4');
+    var feelsLikeWeather = document.createElement('h3');
     feelsLikeWeather.textContent = `Feels like ${Math.round(weatherData.main.feels_like)}° F | ${weatherData.weather[0].main}`;
 
     currentWeatherEl.appendChild(feelsLikeWeather);
