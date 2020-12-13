@@ -118,7 +118,7 @@ var populateForecast = function(forecastData) {
         cardBody.appendChild(cardTitle);
 
         var cardIcon = document.createElement('img');
-        var iconURL = 'http://openweathermap.org/img/wn/' + forecastData.daily[i].weather[0].icon + '@2x.png';
+        var iconURL = 'https://openweathermap.org/img/wn/' + forecastData.daily[i].weather[0].icon + '@2x.png';
         cardIcon.setAttribute('src', iconURL);
         cardIcon.classList.add('card-text');
 
@@ -158,7 +158,7 @@ var populateForecast = function(forecastData) {
 
 var getCurrentWeather = function(city, stateCode, countryCode) {
     // build api url
-    apiUrl = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + ',' + stateCode + ',' + countryCode + '&appid=' + apiKey + '&units=imperial';
+    apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + ',' + stateCode + ',' + countryCode + '&appid=' + apiKey + '&units=imperial';
 
     // send request to get current weather
     fetch(apiUrl).then(function(response){
@@ -191,7 +191,7 @@ var populateCurrentWeather = function(weatherData) {
     activeLocationEl.textContent = 'Weather in ' + weatherData.name + ' (' + currentDate + ')';
     // add an image of the current weather to the activeLocation span
     var currentWeatherImage = document.createElement('img');
-    var iconURL = 'http://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png';
+    var iconURL = 'https://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png';
     currentWeatherImage.setAttribute('src', iconURL);
     activeLocationEl.appendChild(currentWeatherImage);
 
@@ -227,7 +227,7 @@ var populateCurrentWeather = function(weatherData) {
 
 var getCurrentUVIndex = function(lat, lon) {
     // build api url
-    apiUrl = 'http://api.openweathermap.org/data/2.5/uvi?lat='+ lat + '&lon=' + lon + '&appid=' + apiKey;
+    apiUrl = 'https://api.openweathermap.org/data/2.5/uvi?lat='+ lat + '&lon=' + lon + '&appid=' + apiKey;
 
     // send request to get current UV index
     fetch(apiUrl).then(function(response){

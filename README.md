@@ -2,6 +2,8 @@
 
 For this week's challenge, we developed an interactive weather dashboard that allows users to search for and add cities they're interested in.
 
+The weather dashboard can be accessed live [here](https://quaylas.github.io/qs.weatherdashboard.wk6/).
+
 Table of Contents
 * [User Story and Acceptance Criteria](#user-story-and-acceptance-criteria)
 * [Key Features](#key-features)
